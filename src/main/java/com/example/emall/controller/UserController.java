@@ -1,0 +1,11 @@
+package com.example.emall.controller;
+
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class UserController extends BaseController{
+
+}

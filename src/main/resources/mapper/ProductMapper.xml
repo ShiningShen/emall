@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.emall.mapper.ProductMapper">
+    <select id="selectProducts" resultType="com.example.emall.vo.ProductVo">
+        SELECT
+            p.*,
+            u.username AS sellerName
+        FROM
+            Product p
+                LEFT JOIN user u ON p.seller_id = u.id
+            ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectOneProduct" resultType="com.example.emall.vo.ProductVo">
+        SELECT
+            p.*,
+            u.id AS authorId,
+            u.username AS sellerName
+
+        FROM
+            Product p
+                LEFT JOIN user u ON p.seller_id = u.id
+            ${ew.customSqlSegment}
+
+    </select>
+
+</mapper>
